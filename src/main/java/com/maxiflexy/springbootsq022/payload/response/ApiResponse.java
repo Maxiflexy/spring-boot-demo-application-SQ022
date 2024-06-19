@@ -22,9 +22,10 @@ public class ApiResponse<T> {
     }
 
 
-    public ApiResponse(T responseData, String responseMessage, String responseTime) {
+    public ApiResponse(T responseData, String responseMessage) {
         this.responseData = responseData;
         this.responseMessage = responseMessage;
-        this.responseTime = responseTime;
     }
+
+
 }
