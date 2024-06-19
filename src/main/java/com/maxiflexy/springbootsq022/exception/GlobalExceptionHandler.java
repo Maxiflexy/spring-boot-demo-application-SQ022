@@ -23,5 +23,17 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleEmployeeNotException(final EmployeeNotFoundException e){
+
+        ErrorDetails errorDetails = new ErrorDetails();
+        errorDetails.setTimeStamp(LocalDateTime.now());
+        errorDetails.setErrorMessage(e.getMessage());
+        errorDetails.setErrorMessage(String.valueOf(HttpStatus.NOT_FOUND));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+
 
 }
