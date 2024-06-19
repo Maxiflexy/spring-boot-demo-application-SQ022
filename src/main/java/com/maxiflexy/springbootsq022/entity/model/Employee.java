@@ -1,11 +1,11 @@
 package com.maxiflexy.springbootsq022.entity.model;
 
 import com.maxiflexy.springbootsq022.entity.enums.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -32,5 +32,8 @@ public class Employee extends BaseClass{
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Attendance> attendanceList = new ArrayList<>();
 
 }

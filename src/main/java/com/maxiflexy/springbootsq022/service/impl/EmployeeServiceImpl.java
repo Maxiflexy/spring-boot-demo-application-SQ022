@@ -52,6 +52,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                                         " " + saveEmployee.getLastName())
                                 .build();
 
+        emailService.sendEmailAlert(emailDetails);
+
         EmployeeResponse response = EmployeeResponse.builder()
                                 .firstName(employeeRequest.getFirstName())
                                 .lastName(employeeRequest.getLastName())
