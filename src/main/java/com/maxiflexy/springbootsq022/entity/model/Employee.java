@@ -2,6 +2,8 @@ package com.maxiflexy.springbootsq022.entity.model;
 
 import com.maxiflexy.springbootsq022.entity.enums.*;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -15,12 +17,20 @@ import lombok.*;
 public class Employee extends BaseClass{
 
     private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private Designation designation;
-    private Gender gender;
-    private Role role;
 
+    private String lastName;
+
+    private String email;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Designation designation;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }
